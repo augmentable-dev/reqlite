@@ -1,0 +1,10 @@
+{
+    "go.toolsEnvVars": {
+        "CGO_LDFLAGS": "-Wl,-undefined,dynamic_lookup"
+    },
+    "go.testEnvVars": {
+        "CGO_LDFLAGS": "-Wl,-undefined,dynamic_lookup",
+    },
+    "go.testFlags": ["-v", "-tags=libsqlite3,sqlite_json1"],
+    "go.vetFlags": ["-tags=libsqlite3,sqlite_json1"]
+}
