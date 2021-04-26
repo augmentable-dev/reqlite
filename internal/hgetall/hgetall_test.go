@@ -56,4 +56,8 @@ func TestHGetAllOK(t *testing.T) {
 	if diff := deep.Equal(rows, want); diff != nil {
 		t.Error(diff)
 	}
+
+	if err := mock.ExpectationsWereMet(); err != nil {
+		t.Error(err)
+	}
 }
