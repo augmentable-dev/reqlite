@@ -8,7 +8,7 @@ This project is distributed as a SQLite [run-time loadable extension](https://ww
 
 ```
 make
-sqlite3 # should drop you into a shell
+sqlite3
 sqlite> .load .build/reqlite.so
 sqlite> SELECT * FROM LRANGE('some-key', 0, 10);
 ```
