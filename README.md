@@ -13,7 +13,9 @@ sqlite> .load .build/reqlite.so
 sqlite> SELECT * FROM LRANGE('some-key', 0, 10);
 ```
 
-## Table Valued Functions
+## Table-Valued Functions
+
+The following [table-valued functions](https://www.sqlite.org/vtab.html#tabfunc2) are based on corresponding Redis commands.
 
 ### LRANGE
 
