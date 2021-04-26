@@ -6,8 +6,10 @@ This project is distributed as a SQLite [run-time loadable extension](https://ww
 
 ## Getting Started
 
-```
-make
+To build a run-time loadable extension, run `make` in the root of the source tree.
+The `reqlite.so` file should be in `.build/reqlite.so`, which you can use immediately in a [SQLite shell](https://sqlite.org/cli.html):
+
+```sql
 sqlite3
 sqlite> .load .build/reqlite.so
 sqlite> SELECT * FROM LRANGE('some-key', 0, 10);
