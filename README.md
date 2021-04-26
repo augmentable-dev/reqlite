@@ -20,3 +20,9 @@ sqlite> SELECT * FROM LRANGE('some-key', 0, 10);
 ```sql
 SELECT * FROM LRANGE('some-key', 0, 10)
 ```
+
+### HGETALL
+
+```sql
+SELECT * FROM HGETALL('myhash')
+```
