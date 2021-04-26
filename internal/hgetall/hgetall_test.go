@@ -48,7 +48,9 @@ func TestHGetAllOK(t *testing.T) {
 	defer db.Close()
 
 	rows := []kv{}
-	err = db.Select(&rows, "SELECT * FROM HGETALL('test-hash')")
+	// the ORDER BY in the query is necessary since there's no guarantee what order the key/value pairs
+	// will be returned in, leading to a flaky test case in the deep equal below (where order matters)
+	err = db.Select(&rows, "SELECT * FROM HGETALL('test-hash') ORDER BY hval")
 	if err != nil {
 		t.Fatal(err)
 	}
