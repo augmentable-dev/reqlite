@@ -1,4 +1,4 @@
-.PHONY: clean vet test lint
+.PHONY: clean vet test test-cover lint
 
 all: clean internal/sqlite/sqlite3.c .build/reqlite.so .build/reqlite
 
@@ -10,6 +10,9 @@ endif
 
 test:
 	@CGO_LDFLAGS="${CGO_LDFLAGS}" go test -v -tags="libsqlite3,sqlite_json1" ./...
+
+test-cover:
+	@CGO_LDFLAGS="${CGO_LDFLAGS}" go test -v -tags="libsqlite3,sqlite_json1" -cover -covermode=count -coverprofile=coverage.out ./...
 
 vet:
 	@CGO_LDFLAGS="${CGO_LDFLAGS}" go vet -v -tags="libsqlite3,sqlite_json1" ./...
