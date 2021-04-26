@@ -33,8 +33,7 @@ type iter struct {
 	results []kv
 }
 
-func newIter(key string) (*iter, error) {
-	rdb := redis.NewClient(&redis.Options{})
+func newIter(rdb *redis.Client, key string) (*iter, error) {
 	h, err := rdb.HGetAll(context.TODO(), key).Result()
 	if err != nil {
 		return nil, err
@@ -68,7 +67,7 @@ func (i *iter) Next() (vtab.Row, error) {
 }
 
 // New returns an lrange virtual table
-func New() sqlite.Module {
+func New(rdb *redis.Client) sqlite.Module {
 	return vtab.NewTableFunc("hgetall", cols, func(constraints []vtab.Constraint, order []*sqlite.OrderBy) (vtab.Iterator, error) {
 		var key string
 		for _, constraint := range constraints {
@@ -80,7 +79,7 @@ func New() sqlite.Module {
 			}
 		}
 
-		iter, err := newIter(key)
+		iter, err := newIter(rdb, key)
 		if err != nil {
 			return nil, err
 		}
