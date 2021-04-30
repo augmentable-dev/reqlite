@@ -4,6 +4,7 @@ import (
 	"os"
 
 	"github.com/augmentable-dev/reqlite/internal/hgetall"
+	"github.com/augmentable-dev/reqlite/internal/json/get"
 	"github.com/augmentable-dev/reqlite/internal/lrange"
 	"github.com/go-redis/redis/v8"
 	_ "github.com/mattn/go-sqlite3"
@@ -25,6 +26,8 @@ func init() {
 		options.Password = pass
 	}
 	rdb := redis.NewClient(options)
+	// TODO how should closing the client be handled?
+	// is it necessary?
 
 	sqlite.Register(func(api *sqlite.ExtensionApi) (sqlite.ErrorCode, error) {
 		if err := api.CreateModule("lrange", lrange.New(rdb),
@@ -34,6 +37,10 @@ func init() {
 
 		if err := api.CreateModule("hgetall", hgetall.New(rdb),
 			sqlite.EponymousOnly(true), sqlite.ReadOnly(true)); err != nil {
+			return sqlite.SQLITE_ERROR, err
+		}
+
+		if err := api.CreateFunction("json_get", get.New(rdb)); err != nil {
 			return sqlite.SQLITE_ERROR, err
 		}
 
