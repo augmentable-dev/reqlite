@@ -13,9 +13,9 @@ type get struct {
 	rh *rejson.Handler
 }
 
-func (m *get) Args() int           { return -1 }
-func (m *get) Deterministic() bool { return false }
-func (m *get) Apply(ctx *sqlite.Context, values ...sqlite.Value) {
+func (f *get) Args() int           { return -1 }
+func (f *get) Deterministic() bool { return false }
+func (f *get) Apply(ctx *sqlite.Context, values ...sqlite.Value) {
 	var key, path string
 
 	switch len(values) {
@@ -32,7 +32,7 @@ func (m *get) Apply(ctx *sqlite.Context, values ...sqlite.Value) {
 		path = values[1].Text()
 	}
 
-	res, err := m.rh.JSONGet(key, path)
+	res, err := f.rh.JSONGet(key, path)
 	if err != nil {
 		if errors.Is(err, redis.Nil) {
 			ctx.ResultNull()
