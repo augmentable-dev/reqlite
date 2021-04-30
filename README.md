@@ -4,7 +4,7 @@
 
 `reqlite` makes it possible to query data in redis with SQL.
 Queries are executed client-side with SQLite (not on the redis server).
-This project is distributed as a SQLite [run-time loadable extension](https://www.sqlite.org/loadext.html) and a standalone binary.
+This project is distributed as a SQLite [run-time loadable extension](https://www.sqlite.org/loadext.html) and (soon) as a standalone binary (CLI).
 
 ## Getting Started
 
@@ -17,9 +17,9 @@ sqlite> .load .build/reqlite.so
 sqlite> SELECT * FROM LRANGE('some-key', 0, 10);
 ```
 
-## Table-Valued Functions
+## Commands
 
-The following [table-valued functions](https://www.sqlite.org/vtab.html#tabfunc2) are based on corresponding Redis commands.
+Currently, only read operations are targeted to be implemented as SQLite [scalar functions](https://www.sqlite.org/appfunc.html) or [table-valued functions](https://www.sqlite.org/vtab.html#tabfunc2).
 
 ### LRANGE
 
@@ -31,4 +31,16 @@ SELECT * FROM LRANGE('some-key', 0, 10)
 
 ```sql
 SELECT * FROM HGETALL('myhash')
+```
+
+### RedisJSON
+
+#### JSON_GET
+
+```sql
+SELECT JSON_GET('my-json-key')
+```
+
+```sql
+SELECT JSON_GET('my-json-key', 'some.path[2]')
 ```
