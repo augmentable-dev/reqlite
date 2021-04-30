@@ -33,7 +33,7 @@ SELECT * FROM LRANGE('some-key', 0, 10)
 SELECT * FROM HGETALL('myhash')
 ```
 
-### RedisJSON
+### RedisJSON ([link](https://oss.redislabs.com/redisjson/))
 
 #### JSON_GET
 
