@@ -9,6 +9,24 @@ This project is distributed as a SQLite [run-time loadable extension](https://ww
 This project is experimental for the time being.
 It's made possible by a [great library for building SQLite extensions in go](https://github.com/riyaz-ali/sqlite).
 
+The [JSON1 extension](https://www.sqlite.org/json1.html) is also included by default as a convenience.
+
+## Use Cases
+
+What can or should I use this for?
+This project is pretty experimental and part of that is exploring use-cases to understand what's possible or interesting!
+
+A common situation is a [task queue](https://redislabs.com/ebook/part-2-core-concepts/chapter-6-application-components-in-redis/6-4-task-queues/) in Redis.
+If you're [using a `LIST`](https://redislabs.com/ebook/part-2-core-concepts/chapter-6-application-components-in-redis/6-4-task-queues/6-4-1-first-in-first-out-queues/) as a queue holding JSON objects, `reqlite` + the SQLite json1 extension could be used to issue basic "slicing and dicing" queries against your task queue.
+
+```sql
+-- what are the most common tasks currently in the queue?
+SELECT count(*), json_extract(value, '$.task') as task
+FROM LRANGE('my-queue', 0, 100)
+GROUP BY task
+ORDER BY count(*) DESC
+```
+
 ## Getting Started
 
 To build a run-time loadable extension, run `make` in the root of the source tree.
