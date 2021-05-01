@@ -6,6 +6,9 @@
 Queries are executed client-side with SQLite (not on the redis server).
 This project is distributed as a SQLite [run-time loadable extension](https://www.sqlite.org/loadext.html) and (soon) as a standalone binary (CLI).
 
+This project is experimental for the time being.
+It's made possible by a [great library for building SQLite extensions in go](https://github.com/riyaz-ali/sqlite).
+
 ## Getting Started
 
 To build a run-time loadable extension, run `make` in the root of the source tree.
@@ -20,6 +23,13 @@ sqlite> SELECT * FROM LRANGE('some-key', 0, 10);
 ## Commands
 
 Currently, only read operations are targeted to be implemented as SQLite [scalar functions](https://www.sqlite.org/appfunc.html) or [table-valued functions](https://www.sqlite.org/vtab.html#tabfunc2).
+In the examples below, you'll see how a SQLite scalar or table-valued function maps to a corresponding [Redis command](https://redis.io/commands), based on the response type.
+Note that there won't always be an exact correspondence, and currently not all Redis commands are targeted to be implemented (read-only for now).
+
+```sql
+SELECT * FROM some_table_valued_function('param', 1, 2) -- function that returns a table
+SELECT some_scalar_function('param', 1, 2) -- function that returns a scalar value
+```
 
 ### LRANGE
 

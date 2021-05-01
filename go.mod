@@ -11,5 +11,6 @@ require (
 	github.com/jmoiron/sqlx v1.3.3
 	github.com/mattn/go-sqlite3 v1.14.7
 	github.com/nitishm/go-rejson/v4 v4.0.0
+	go.opentelemetry.io/otel v0.20.0 // indirect
 	go.riyazali.net/sqlite v0.0.0-20210413174544-3cf76b5afbdc
 )
