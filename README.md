@@ -2,7 +2,7 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/augmentable-dev/reqlite)](https://goreportcard.com/report/github.com/augmentable-dev/reqlite)
 # reqlite
 
-`reqlite` makes it possible to query data in redis with SQL.
+`reqlite` makes it possible to query data in [Redis](https://redis.io/) with [SQL](https://sqlite.org/lang.html).
 Queries are executed client-side with SQLite (not on the redis server).
 This project is distributed as a SQLite [run-time loadable extension](https://www.sqlite.org/loadext.html) and (soon) as a standalone binary (CLI).
 
@@ -14,7 +14,7 @@ The [JSON1 extension](https://www.sqlite.org/json1.html) is also included by def
 ## Use Cases
 
 What can or should I use this for?
-This project is pretty experimental and part of that is exploring use-cases to understand what's possible or interesting!
+This project is pretty experimental and part of that is exploring use-cases to understand what's possible and interesting!
 
 A common situation is a [task queue](https://redislabs.com/ebook/part-2-core-concepts/chapter-6-application-components-in-redis/6-4-task-queues/) in Redis.
 If you're [using a `LIST`](https://redislabs.com/ebook/part-2-core-concepts/chapter-6-application-components-in-redis/6-4-task-queues/6-4-1-first-in-first-out-queues/) as a queue holding JSON objects, `reqlite` + the SQLite json1 extension could be used to issue basic "slicing and dicing" queries against your task queue.
@@ -27,6 +27,10 @@ GROUP BY task
 ORDER BY count(*) DESC
 ```
 
+In general, Redis is fairly accessible from [many programming languages](https://redis.io/clients), and any query using `reqlite` could probably be implemented in a language of your choice using a Redis client.
+However, sometimes declarative SQL can be a better choice to express what you're looking for, and that's where this project may be most useful.
+Since `reqlite` is distributed as a run-time loadable SQLite extension, it can be loaded into a language using a SQLite driver as well, which would allow you to mix SQL and the "host" language to access data in Redis.
+
 ## Getting Started
 
 To build a run-time loadable extension, run `make` in the root of the source tree.
@@ -37,6 +41,19 @@ sqlite3
 sqlite> .load .build/reqlite.so
 sqlite> SELECT * FROM LRANGE('some-key', 0, 10);
 ```
+
+### Connecting to Redis
+
+Currently, the Redis connection can only be set via the following `env` variables:
+
+| ENV          | Default          | Description                           |
+|--------------|------------------|---------------------------------------|
+| REQLITE_NET  | `tcp`            | Network type - either `tcp` or `udp`  |
+| REQLITE_ADDR | `localhost:6379` | Network address of the redis instance |
+| REQLITE_USER | (none)           | Redis username                        |
+| REQLITE_PASS | (none)           | Redis password                        |
+
+TODO - Implement another mechanism (SQLite UDFs?) for setting up the connection information.
 
 ## Commands
 
