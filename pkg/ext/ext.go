@@ -5,6 +5,7 @@ import (
 
 	"github.com/augmentable-dev/reqlite/internal/hgetall"
 	"github.com/augmentable-dev/reqlite/internal/json/get"
+	"github.com/augmentable-dev/reqlite/internal/json/mget"
 	"github.com/augmentable-dev/reqlite/internal/lrange"
 	"github.com/go-redis/redis/v8"
 	_ "github.com/mattn/go-sqlite3"
@@ -41,6 +42,10 @@ func init() {
 		}
 
 		if err := api.CreateFunction("json_get", get.New(rdb)); err != nil {
+			return sqlite.SQLITE_ERROR, err
+		}
+
+		if err := api.CreateModule("json_mget", mget.New(rdb)); err != nil {
 			return sqlite.SQLITE_ERROR, err
 		}
 

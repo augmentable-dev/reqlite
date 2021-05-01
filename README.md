@@ -54,3 +54,9 @@ SELECT JSON_GET('my-json-key')
 ```sql
 SELECT JSON_GET('my-json-key', 'some.path[2]')
 ```
+
+#### JSON_MGET
+
+```sql
+SELECT * FROM JSON_MGET('some.path', 'key1,key2,key3')
+```
