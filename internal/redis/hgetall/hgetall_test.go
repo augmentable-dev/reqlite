@@ -3,7 +3,7 @@ package hgetall_test
 import (
 	"testing"
 
-	"github.com/augmentable-dev/reqlite/internal/hgetall"
+	"github.com/augmentable-dev/reqlite/internal/redis/hgetall"
 	_ "github.com/augmentable-dev/reqlite/internal/sqlite"
 	"github.com/go-redis/redismock/v8"
 	"github.com/go-test/deep"
