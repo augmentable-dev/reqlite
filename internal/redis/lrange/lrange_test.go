@@ -3,7 +3,7 @@ package lrange_test
 import (
 	"testing"
 
-	"github.com/augmentable-dev/reqlite/internal/lrange"
+	"github.com/augmentable-dev/reqlite/internal/redis/lrange"
 	_ "github.com/augmentable-dev/reqlite/internal/sqlite"
 	"github.com/go-redis/redismock/v8"
 	"github.com/go-test/deep"
