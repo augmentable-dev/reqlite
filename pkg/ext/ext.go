@@ -5,6 +5,7 @@ import (
 
 	"github.com/augmentable-dev/reqlite/internal/json/get"
 	"github.com/augmentable-dev/reqlite/internal/json/mget"
+	"github.com/augmentable-dev/reqlite/internal/redis/bitcount"
 	"github.com/augmentable-dev/reqlite/internal/redis/hgetall"
 	"github.com/augmentable-dev/reqlite/internal/redis/lrange"
 	"github.com/go-redis/redis/v8"
@@ -38,6 +39,10 @@ func init() {
 
 		if err := api.CreateModule("hgetall", hgetall.New(rdb),
 			sqlite.EponymousOnly(true), sqlite.ReadOnly(true)); err != nil {
+			return sqlite.SQLITE_ERROR, err
+		}
+
+		if err := api.CreateFunction("bitcount", bitcount.New(rdb)); err != nil {
 			return sqlite.SQLITE_ERROR, err
 		}
 
