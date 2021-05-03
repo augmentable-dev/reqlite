@@ -78,15 +78,19 @@ SELECT * FROM LRANGE('some-key', 0, 10)
 SELECT * FROM HGETALL('myhash')
 ```
 
+### BITCOUNT
+
+```sql
+SELECT BITCOUNT('some-key')
+SELECT BITCOUNT('some-key', 1, 1)
+```
+
 ### RedisJSON ([link](https://oss.redislabs.com/redisjson/))
 
 #### JSON_GET
 
 ```sql
 SELECT JSON_GET('my-json-key')
-```
-
-```sql
 SELECT JSON_GET('my-json-key', 'some.path[2]')
 ```
 
