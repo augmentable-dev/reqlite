@@ -66,6 +66,9 @@ SELECT * FROM some_table_valued_function('param', 1, 2) -- function that returns
 SELECT some_scalar_function('param', 1, 2) -- function that returns a scalar value
 ```
 
+Available functions are listed below.
+For a full list of Redis commands and corresponding SQLite functions, [see here](https://github.com/augmentable-dev/reqlite/tree/main/commands.md).
+
 ### LRANGE
 
 ```sql
