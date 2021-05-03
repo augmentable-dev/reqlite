@@ -18,7 +18,7 @@
 | AUTH                          | 🚧
 | BGREWRITEAOF                  | 🚧
 | BGSAVE                        | 🚧
-| BITCOUNT                      | 🚧
+| BITCOUNT                      | ✅ [`BITCOUNT`](https://github.com/augmentable-dev/reqlite/tree/main/internal/redis/bitcount)
 | BITFIELD                      | 🚧
 | BITOP                         | 🚧
 | BITPOS                        | 🚧
@@ -109,7 +109,7 @@
 | HELLO                         | 🚧
 | HEXISTS                       | 🚧
 | HGET                          | 🚧
-| HGETALL                       | ✅ [`HGETALL`](https://github.com/augmentable-dev/reqlite/tree/main/internal/hgetall)
+| HGETALL                       | ✅ [`HGETALL`](https://github.com/augmentable-dev/reqlite/tree/main/internal/redis/hgetall)
 | HINCRBY                       | 🚧
 | HINCRBYFLOAT                  | 🚧
 | HKEYS                         | 🚧
@@ -135,7 +135,7 @@
 | LPOS                          | 🚧
 | LPUSH                         | 🚧
 | LPUSHX                        | 🚧
-| LRANGE                        | ✅ [`LRANGE`](https://github.com/augmentable-dev/reqlite/tree/main/internal/lrange)
+| LRANGE                        | ✅ [`LRANGE`](https://github.com/augmentable-dev/reqlite/tree/main/internal/redis/lrange)
 | LREM                          | 🚧
 | LSET                          | 🚧
 | LTRIM                         | 🚧
