@@ -88,6 +88,13 @@ SELECT BITCOUNT('some-key')
 SELECT BITCOUNT('some-key', 1, 1)
 ```
 
+### BITPOS
+
+```sql
+SELECT BITPOS('some-key', 0)
+SELECT BITPOS('some-key', 1, 2)
+```
+
 ### RedisJSON ([link](https://oss.redislabs.com/redisjson/))
 
 #### JSON_GET
