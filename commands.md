@@ -21,7 +21,7 @@
 | BITCOUNT                      | ✅ [`BITCOUNT`](https://github.com/augmentable-dev/reqlite/tree/main/internal/redis/bitcount)
 | BITFIELD                      | 🚧
 | BITOP                         | 🚧
-| BITPOS                        | 🚧
+| BITPOS                        | ✅ [`BITPOS`](https://github.com/augmentable-dev/reqlite/tree/main/internal/redis/bitpos)
 | BLPOP                         | 🚧
 | BRPOP                         | 🚧
 | BRPOPLPUSH                    | 🚧
