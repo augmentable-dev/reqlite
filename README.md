@@ -7,7 +7,7 @@ Queries are executed client-side with SQLite (not on the redis server).
 This project is distributed as a SQLite [run-time loadable extension](https://www.sqlite.org/loadext.html) and (soon) as a standalone binary (CLI).
 
 <p align="center">
-![Reqlite Architecture Diagram](./diagram.png?raw=true)
+    <img src="./diagram.png?raw=true">
 </p>
 
 This project is experimental for the time being.
