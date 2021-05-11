@@ -6,14 +6,14 @@
 Queries are executed client-side with SQLite (not on the redis server).
 This project is distributed as a SQLite [run-time loadable extension](https://www.sqlite.org/loadext.html) and (soon) as a standalone binary (CLI).
 
-<p align="center">
-    <img src="./diagram.png?raw=true">
-</p>
-
 This project is experimental for the time being.
 It's made possible by a [great library for building SQLite extensions in go](https://github.com/riyaz-ali/sqlite).
 
 The [JSON1 extension](https://www.sqlite.org/json1.html) is also included by default as a convenience.
+
+<p align="center">
+    <img src="./diagram.png?raw=true">
+</p>
 
 ## Use Cases
 
