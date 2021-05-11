@@ -68,7 +68,7 @@
 | COMMAND COUNT                 | 🚧
 | COMMAND GETKEYS               | 🚧
 | COMMAND INFO                  | 🚧
-| CONFIG GET                    | 🚧
+| CONFIG GET                    | ✅ [`CONFIG_GET`](https://github.com/augmentable-dev/reqlite/tree/main/internal/redis/config_get)
 | CONFIG REWRITE                | 🚧
 | CONFIG SET                    | 🚧
 | CONFIG RESETSTAT              | 🚧
