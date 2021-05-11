@@ -29,7 +29,7 @@
 | BZPOPMIN                      | 🚧
 | BZPOPMAX                      | 🚧
 | CLIENT CACHING                | 🚧
-| CLIENT ID                     | ✅ [`CLIENT_ID`](https://github.com/augmentable-dev/reqlite/tree/main/internal/redis/clientid)
+| CLIENT ID                     | ✅ [`CLIENT_ID`](https://github.com/augmentable-dev/reqlite/tree/main/internal/redis/client_id)
 | CLIENT INFO                   | 🚧
 | CLIENT KILL                   | 🚧
 | CLIENT LIST                   | 🚧
@@ -68,7 +68,7 @@
 | COMMAND COUNT                 | 🚧
 | COMMAND GETKEYS               | 🚧
 | COMMAND INFO                  | 🚧
-| CONFIG GET                    | 🚧
+| CONFIG GET                    | ✅ [`CONFIG_GET`](https://github.com/augmentable-dev/reqlite/tree/main/internal/redis/config_get)
 | CONFIG REWRITE                | 🚧
 | CONFIG SET                    | 🚧
 | CONFIG RESETSTAT              | 🚧

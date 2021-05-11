@@ -1,4 +1,4 @@
-package clientid
+package client_id
 
 import (
 	"context"
