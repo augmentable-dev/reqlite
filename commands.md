@@ -29,7 +29,7 @@
 | BZPOPMIN                      | 🚧
 | BZPOPMAX                      | 🚧
 | CLIENT CACHING                | 🚧
-| CLIENT ID                     | 🚧
+| CLIENT ID                     | ✅ [`CLIENT_ID`](https://github.com/augmentable-dev/reqlite/tree/main/internal/redis/clientid)
 | CLIENT INFO                   | 🚧
 | CLIENT KILL                   | 🚧
 | CLIENT LIST                   | 🚧

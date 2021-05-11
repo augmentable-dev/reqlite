@@ -95,6 +95,12 @@ SELECT BITPOS('some-key', 0)
 SELECT BITPOS('some-key', 1, 2)
 ```
 
+### CLIENT ID
+
+```sql
+SELECT CLIENT_ID()
+```
+
 ### RedisJSON ([link](https://oss.redislabs.com/redisjson/))
 
 #### JSON_GET
