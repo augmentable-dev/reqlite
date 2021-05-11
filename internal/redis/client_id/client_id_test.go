@@ -1,9 +1,9 @@
-package clientid_test
+package client_id_test
 
 import (
 	"testing"
 
-	"github.com/augmentable-dev/reqlite/internal/redis/clientid"
+	"github.com/augmentable-dev/reqlite/internal/redis/client_id"
 	_ "github.com/augmentable-dev/reqlite/internal/sqlite"
 	"github.com/go-redis/redismock/v8"
 	"github.com/go-test/deep"
@@ -12,12 +12,12 @@ import (
 	"go.riyazali.net/sqlite"
 )
 
-func TestBitposOK(t *testing.T) {
+func TestClientIDOK(t *testing.T) {
 	rdb, mock := redismock.NewClientMock()
 
 	want := int64(16)
 	mock.ExpectClientID().SetVal(want)
-	function := clientid.New(rdb)
+	function := client_id.New(rdb)
 
 	sqlite.Register(func(api *sqlite.ExtensionApi) (sqlite.ErrorCode, error) {
 		if err := api.CreateFunction("client_id", function); err != nil {
