@@ -73,7 +73,7 @@
 | CONFIG SET                    | 🚧
 | CONFIG RESETSTAT              | 🚧
 | COPY                          | 🚧
-| DBSIZE                        | 🚧
+| DBSIZE                        | ✅ [`DBSIZE`](https://github.com/augmentable-dev/reqlite/tree/main/internal/redis/dbsize)
 | DEBUG OBJECT                  | 🚧
 | DEBUG SEGFAULT                | 🚧
 | DECR                          | 🚧
