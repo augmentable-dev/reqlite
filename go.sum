@@ -1,5 +1,5 @@
-github.com/augmentable-dev/vtab v0.0.0-20210425174033-da43ecfcf070 h1:tJ8bpJ/QHqh+7AAip5Y9yP1x7S4NH8ghP4TGc0bv9ug=
-github.com/augmentable-dev/vtab v0.0.0-20210425174033-da43ecfcf070/go.mod h1:BKbu+b2ssBzOOxr8F3X1cVZa5K+cd452Ogc3qgcfIfY=
+github.com/augmentable-dev/vtab v0.0.0-20210509203007-e31d3ddf1ea9 h1:YnP84P2DrL+KfraV8YYKEfwbpEVKUysZGtcGnAWlqmY=
+github.com/augmentable-dev/vtab v0.0.0-20210509203007-e31d3ddf1ea9/go.mod h1:xCR5JydZrlSqgkHVt/TWE8roHFeP9LjIWkG8LC4DQqc=
 github.com/cespare/xxhash/v2 v2.1.1 h1:6MnRN8NT7+YBpUIWxHtefFZOKTAPgGjpQSxqLNn0+qY=
 github.com/cespare/xxhash/v2 v2.1.1/go.mod h1:VGX0DQ3Q6kWi7AoAeZDth3/j3BFtOZR5XLFGgcrjCOs=
 github.com/davecgh/go-spew v1.1.0 h1:ZDRjVQ15GmhC3fiQ8ni8+OwkZQO4DARzQgrnXU1Liz8=
@@ -80,7 +80,6 @@ go.opentelemetry.io/otel/oteltest v0.20.0/go.mod h1:L7bgKf9ZB7qCwT9Up7i9/pn0PWIa
 go.opentelemetry.io/otel/trace v0.19.0/go.mod h1:4IXiNextNOpPnRlI4ryK69mn5iC84bjBWZQA5DXz/qg=
 go.opentelemetry.io/otel/trace v0.20.0 h1:1DL6EXUdcg95gukhuRRvLDO/4X5THh/5dIV52lqtnbw=
 go.opentelemetry.io/otel/trace v0.20.0/go.mod h1:6GjCW8zgDjwGHGa6GkyeB8+/5vjT16gUEi0Nf1iBdgw=
-go.riyazali.net/sqlite v0.0.0-20210326190148-448ec1ab2454/go.mod h1:NNie4T5ol2qbMg7kw1QkXDrcgTeXQgbGxEhn1m4nBu0=
 go.riyazali.net/sqlite v0.0.0-20210413174544-3cf76b5afbdc h1:H0iCRhfcR/mlWB9KZd81mcyrH3y2fjLHdmo66VyQu4Q=
 go.riyazali.net/sqlite v0.0.0-20210413174544-3cf76b5afbdc/go.mod h1:UVocl0mLwS0QKUKa5mI6lppmBjvQnUEkFjFfoWqFWQU=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
