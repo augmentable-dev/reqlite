@@ -1,5 +1,6 @@
 [![BuildStatus](https://github.com/augmentable-dev/reqlite/workflows/tests/badge.svg)](https://github.com/augmentable-dev/reqlite/actions?workflow=tests)
 [![Go Report Card](https://goreportcard.com/badge/github.com/augmentable-dev/reqlite)](https://goreportcard.com/report/github.com/augmentable-dev/reqlite)
+[![codecov](https://codecov.io/gh/augmentable-dev/reqlite/branch/main/graph/badge.svg?token=X4QW63N9ZN)](https://codecov.io/gh/augmentable-dev/reqlite)
 # reqlite
 
 `reqlite` makes it possible to query data in [Redis](https://redis.io/) with [SQL](https://sqlite.org/lang.html).
