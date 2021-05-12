@@ -110,6 +110,12 @@ SELECT * FROM CONFIG_GET('*max-*-entries*')
 SELECT * FROM CONFIG_GET -- equivalent to CONFIG GET *
 ```
 
+### DBSIZE
+
+```sql
+SELECT DBSIZE()
+```
+
 ### RedisJSON ([link](https://oss.redislabs.com/redisjson/))
 
 #### JSON_GET
