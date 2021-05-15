@@ -53,4 +53,30 @@ func TestLLenOK(t *testing.T) {
 	}
 }
 
-// TODO add test cases for non-happy paths
+func TestLLenNoArgFail(t *testing.T) {
+	function := llen.New(nil)
+
+	sqlite.Register(func(api *sqlite.ExtensionApi) (sqlite.ErrorCode, error) {
+		if err := api.CreateFunction("llen", function); err != nil {
+			return sqlite.SQLITE_ERROR, err
+		}
+		return sqlite.SQLITE_OK, nil
+	})
+
+	db, err := sqlx.Open("sqlite3", ":memory:")
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer db.Close()
+
+	row := db.QueryRow("SELECT LLEN()")
+	err = row.Err()
+	if err == nil {
+		t.Fatal("expected error")
+	}
+
+	if err.Error() != "wrong number of arguments to function LLEN()" {
+		t.Fatal("unexpected error string")
+	}
+
+}
