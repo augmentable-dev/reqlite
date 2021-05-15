@@ -119,6 +119,12 @@ SELECT * FROM CONFIG_GET -- equivalent to CONFIG GET *
 SELECT DBSIZE()
 ```
 
+### LLEN
+
+```sql
+SELECT LLEN('some-list')
+```
+
 ### RedisJSON ([link](https://oss.redislabs.com/redisjson/))
 
 #### JSON_GET

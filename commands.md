@@ -130,7 +130,7 @@
 | LASTSAVE                      | 🚧
 | LINDEX                        | 🚧
 | LINSERT                       | 🚧
-| LLEN                          | 🚧
+| LLEN                          | ✅ [`LLEN`](https://github.com/augmentable-dev/reqlite/tree/main/internal/redis/llen)
 | LPOP                          | 🚧
 | LPOS                          | 🚧
 | LPUSH                         | 🚧
