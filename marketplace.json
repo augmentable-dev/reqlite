@@ -1,0 +1,14 @@
+{
+    "app_name": "reqlite",
+    "description": "reqlite makes it possible to query data in Redis with SQL. Queries are executed client-side with SQLite (not on the redis server). This project is distributed as a SQLite run-time loadable extension and (soon) as a standalone binary (CLI).",
+    "hidden": false,
+    "rank": 21,
+    "type": "Building Block",
+    "contributed_by": "Community",
+    "repo_url": "https://github.com/augmentable-dev/reqlite",
+    "download_url": "https://github.com/augmentable-dev/reqlite",
+    "hosted_url": "https://github.com/augmentable-dev/reqlite",
+    "language": ["Go"],
+    "redis_modules": ["RedisJSON"],
+    "youtube_url": ""
+}
