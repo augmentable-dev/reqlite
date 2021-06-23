@@ -3,6 +3,7 @@ package ext
 import (
 	"os"
 
+	"github.com/augmentable-dev/reqlite/internal/dump"
 	"github.com/augmentable-dev/reqlite/internal/hgetall"
 	"github.com/augmentable-dev/reqlite/internal/lrange"
 	"github.com/go-redis/redis/v8"
@@ -34,6 +35,9 @@ func init() {
 
 		if err := api.CreateModule("hgetall", hgetall.New(rdb),
 			sqlite.EponymousOnly(true), sqlite.ReadOnly(true)); err != nil {
+			return sqlite.SQLITE_ERROR, err
+		}
+		if err := api.CreateFunction("dump", dump.New(rdb)); err != nil {
 			return sqlite.SQLITE_ERROR, err
 		}
 
