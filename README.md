@@ -30,3 +30,9 @@ SELECT * FROM LRANGE('some-key', 0, 10)
 ```sql
 SELECT * FROM HGETALL('myhash')
 ```
+
+### DUMP
+
+```sql
+SELECT dump('some-key');
+```
