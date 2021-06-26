@@ -4,10 +4,8 @@ import (
 	"os"
 
 	"github.com/augmentable-dev/reqlite/internal/dump"
-	"github.com/augmentable-dev/reqlite/internal/hgetall"
 	"github.com/augmentable-dev/reqlite/internal/json/get"
 	"github.com/augmentable-dev/reqlite/internal/json/mget"
-	"github.com/augmentable-dev/reqlite/internal/lrange"
 	"github.com/augmentable-dev/reqlite/internal/redis/bitcount"
 	"github.com/augmentable-dev/reqlite/internal/redis/bitpos"
 	"github.com/augmentable-dev/reqlite/internal/redis/client_id"
