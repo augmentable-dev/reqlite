@@ -1,9 +1,9 @@
-package lrange_test
+package dbsize_test
 
 import (
 	"testing"
 
-	"github.com/augmentable-dev/reqlite/internal/lrange"
+	"github.com/augmentable-dev/reqlite/internal/redis/dbsize"
 	_ "github.com/augmentable-dev/reqlite/internal/sqlite"
 	"github.com/go-redis/redismock/v8"
 	"github.com/go-test/deep"
@@ -12,17 +12,15 @@ import (
 	"go.riyazali.net/sqlite"
 )
 
-func TestLRangeOK(t *testing.T) {
+func TestDBSizeOK(t *testing.T) {
 	rdb, mock := redismock.NewClientMock()
 
-	want := []string{"one", "two", "three"}
-	mock.ExpectLRange("test-list", 0, 5).SetVal(want)
-	mod := lrange.New(rdb)
+	want := int64(100)
+	mock.ExpectDBSize().SetVal(want)
+	function := dbsize.New(rdb)
 
 	sqlite.Register(func(api *sqlite.ExtensionApi) (sqlite.ErrorCode, error) {
-		if err := api.CreateModule("lrange", mod,
-			sqlite.EponymousOnly(true),
-			sqlite.ReadOnly(true)); err != nil {
+		if err := api.CreateFunction("dbsize", function); err != nil {
 			return sqlite.SQLITE_ERROR, err
 		}
 		return sqlite.SQLITE_OK, nil
@@ -34,13 +32,19 @@ func TestLRangeOK(t *testing.T) {
 	}
 	defer db.Close()
 
-	rows := []string{}
-	err = db.Select(&rows, "SELECT * FROM LRANGE('test-list', 0, 5)")
+	row := db.QueryRow("SELECT DBSIZE()")
+	err = row.Err()
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	if diff := deep.Equal(rows, want); diff != nil {
+	var res int64
+	err = row.Scan(&res)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if diff := deep.Equal(res, want); diff != nil {
 		t.Error(diff)
 	}
 
@@ -48,3 +52,5 @@ func TestLRangeOK(t *testing.T) {
 		t.Error(err)
 	}
 }
+
+// TODO add test cases for non-happy paths
