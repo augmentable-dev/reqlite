@@ -12,7 +12,7 @@ import (
 
 func TestDump(t *testing.T) {
 	rdb, mock := redismock.NewClientMock()
-	expected := "lorem_ipsum"
+	expected := "\x00\xc0\n\t\x00\xbem\x06\x89Z(\x00\n"
 
 	sqlite.Register(func(api *sqlite.ExtensionApi) (sqlite.ErrorCode, error) {
 		if err := api.CreateFunction("dump", New(rdb)); err != nil {
@@ -20,17 +20,20 @@ func TestDump(t *testing.T) {
 		}
 		return sqlite.SQLITE_OK, nil
 	})
-	mock.ExpectDump("hello").SetVal(expected)
+
+	mock.ExpectDump("mykey").SetVal(expected)
 	db, err := sqlx.Open("sqlite3", ":memory:")
 	if err != nil {
 		t.Fatal(err)
 	}
 	defer db.Close()
-	row := db.QueryRow("SELECT dump('hello')")
+
+	row := db.QueryRow("SELECT dump('mykey')")
 	err = row.Err()
 	if err != nil {
 		t.Fatal(err)
 	}
+
 	var s string
 	err = row.Scan(&s)
 	if err != nil {

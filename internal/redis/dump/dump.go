@@ -2,6 +2,7 @@ package dump
 
 import (
 	"context"
+	"errors"
 	"fmt"
 
 	"github.com/go-redis/redis/v8"
@@ -26,12 +27,15 @@ func (f *dump) Apply(ctx *sqlite.Context, values ...sqlite.Value) {
 
 	result, err := f.rdb.Dump(context.TODO(), key).Result()
 	if err != nil {
+		if errors.Is(err, redis.Nil) {
+			ctx.ResultNull()
+			return
+		}
 		ctx.ResultError(err)
 		return
 	}
 
-	ctx.ResultText(result)
-
+	ctx.ResultText(fmt.Sprintf("%+q", result))
 }
 
 // New returns a sqlite function for reading the contents of a file
