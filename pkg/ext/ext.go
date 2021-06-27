@@ -3,7 +3,6 @@ package ext
 import (
 	"os"
 
-	"github.com/augmentable-dev/reqlite/internal/dump"
 	"github.com/augmentable-dev/reqlite/internal/json/get"
 	"github.com/augmentable-dev/reqlite/internal/json/mget"
 	"github.com/augmentable-dev/reqlite/internal/redis/bitcount"
@@ -11,6 +10,7 @@ import (
 	"github.com/augmentable-dev/reqlite/internal/redis/client_id"
 	"github.com/augmentable-dev/reqlite/internal/redis/config_get"
 	"github.com/augmentable-dev/reqlite/internal/redis/dbsize"
+	"github.com/augmentable-dev/reqlite/internal/redis/dump"
 	"github.com/augmentable-dev/reqlite/internal/redis/hgetall"
 	"github.com/augmentable-dev/reqlite/internal/redis/llen"
 	"github.com/augmentable-dev/reqlite/internal/redis/lrange"
@@ -47,9 +47,6 @@ func init() {
 			sqlite.EponymousOnly(true), sqlite.ReadOnly(true)); err != nil {
 			return sqlite.SQLITE_ERROR, err
 		}
-		if err := api.CreateFunction("dump", dump.New(rdb)); err != nil {
-			return sqlite.SQLITE_ERROR, err
-		}
 
 		if err := api.CreateFunction("bitcount", bitcount.New(rdb)); err != nil {
 			return sqlite.SQLITE_ERROR, err
@@ -69,6 +66,10 @@ func init() {
 		}
 
 		if err := api.CreateFunction("dbsize", dbsize.New(rdb)); err != nil {
+			return sqlite.SQLITE_ERROR, err
+		}
+
+		if err := api.CreateFunction("dump", dump.New(rdb)); err != nil {
 			return sqlite.SQLITE_ERROR, err
 		}
 
