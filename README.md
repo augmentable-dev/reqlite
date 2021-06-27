@@ -89,7 +89,7 @@ SELECT * FROM HGETALL('myhash')
 ### DUMP
 
 ```sql
-SELECT dump('some-key');
+SELECT DUMP('some-key');
 
 ### BITCOUNT
 
