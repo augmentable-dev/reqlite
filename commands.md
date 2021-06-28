@@ -80,7 +80,7 @@
 | DECRBY                        | 🚧
 | DEL                           | 🚧
 | DISCARD                       | 🚧
-| DUMP                          | 🚧
+| DUMP                          | ✅ [`DUMP`](https://github.com/augmentable-dev/reqlite/tree/main/internal/redis/dump)
 | ECHO                          | 🚧
 | EVAL                          | 🚧
 | EVALSHA                       | 🚧

@@ -86,6 +86,11 @@ SELECT * FROM LRANGE('some-key', 0, 10)
 SELECT * FROM HGETALL('myhash')
 ```
 
+### DUMP
+
+```sql
+SELECT DUMP('some-key');
+
 ### BITCOUNT
 
 ```sql
