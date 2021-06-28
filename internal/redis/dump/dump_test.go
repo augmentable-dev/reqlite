@@ -45,6 +45,7 @@ func TestDump(t *testing.T) {
 		t.Error(err)
 	}
 }
+
 func TestDumpErr(t *testing.T) {
 	rdb, _ := redismock.NewClientMock()
 
@@ -66,8 +67,8 @@ func TestDumpErr(t *testing.T) {
 	if err == nil {
 		t.Fatal(fmt.Errorf("dump returning no error without args"))
 	}
-
 }
+
 func TestDumpNil(t *testing.T) {
 	rdb, mock := redismock.NewClientMock()
 
@@ -93,5 +94,4 @@ func TestDumpNil(t *testing.T) {
 	if err == nil {
 		t.Fatal("no error from uninitialized key")
 	}
-
 }
