@@ -61,7 +61,7 @@ func init() {
 			return sqlite.SQLITE_ERROR, err
 		}
 
-		if err := api.CreateModule("client_list", client_list.New(rdb)); err != nil {
+		if err := api.CreateFunction("client_list", client_list.New(rdb)); err != nil {
 			return sqlite.SQLITE_ERROR, err
 		}
 
