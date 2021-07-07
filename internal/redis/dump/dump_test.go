@@ -1,9 +1,10 @@
-package dump
+package dump_test
 
 import (
 	"fmt"
 	"testing"
 
+	"github.com/augmentable-dev/reqlite/internal/redis/dump"
 	_ "github.com/augmentable-dev/reqlite/internal/sqlite"
 	"github.com/go-redis/redismock/v8"
 	"github.com/jmoiron/sqlx"
@@ -16,7 +17,7 @@ func TestDump(t *testing.T) {
 	expected := "\x00\xc0\n\t\x00\xbem\x06\x89Z(\x00\n"
 
 	sqlite.Register(func(api *sqlite.ExtensionApi) (sqlite.ErrorCode, error) {
-		if err := api.CreateFunction("dump", New(rdb)); err != nil {
+		if err := api.CreateFunction("dump", dump.New(rdb)); err != nil {
 			return sqlite.SQLITE_ERROR, err
 		}
 		return sqlite.SQLITE_OK, nil
@@ -50,7 +51,7 @@ func TestDumpErr(t *testing.T) {
 	rdb, _ := redismock.NewClientMock()
 
 	sqlite.Register(func(api *sqlite.ExtensionApi) (sqlite.ErrorCode, error) {
-		if err := api.CreateFunction("dump", New(rdb)); err != nil {
+		if err := api.CreateFunction("dump", dump.New(rdb)); err != nil {
 			return sqlite.SQLITE_ERROR, err
 		}
 		return sqlite.SQLITE_OK, nil
@@ -73,7 +74,7 @@ func TestDumpNil(t *testing.T) {
 	rdb, mock := redismock.NewClientMock()
 
 	sqlite.Register(func(api *sqlite.ExtensionApi) (sqlite.ErrorCode, error) {
-		if err := api.CreateFunction("dump", New(rdb)); err != nil {
+		if err := api.CreateFunction("dump", dump.New(rdb)); err != nil {
 			return sqlite.SQLITE_ERROR, err
 		}
 		return sqlite.SQLITE_OK, nil
