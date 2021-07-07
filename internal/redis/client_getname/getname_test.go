@@ -1,12 +1,13 @@
 package getname_test
 
 import (
+	"fmt"
+	"strings"
 	"testing"
 
 	getname "github.com/augmentable-dev/reqlite/internal/redis/client_getname"
 	_ "github.com/augmentable-dev/reqlite/internal/sqlite"
 	"github.com/go-redis/redismock/v8"
-	"github.com/go-test/deep"
 	"github.com/jmoiron/sqlx"
 	_ "github.com/mattn/go-sqlite3"
 	"go.riyazali.net/sqlite"
@@ -44,13 +45,11 @@ func TestClientGetNameOK(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	if diff := deep.Equal(res, want); diff != nil {
-		t.Error(diff)
+	if strings.Compare(res, want) == 0 {
+		t.Error(fmt.Sprintf("result : %s != desired : %s", res, want))
 	}
 
 	if err := mock.ExpectationsWereMet(); err != nil {
 		t.Error(err)
 	}
 }
-
-// TODO add test cases for non-happy paths
