@@ -33,7 +33,7 @@
 | CLIENT INFO                   | 🚧
 | CLIENT KILL                   | 🚧
 | CLIENT LIST                   | 🚧
-| CLIENT GETNAME                | 🚧
+| CLIENT GETNAME                | ✅ [`CLIENT_GETNAME`](https://github.com/augmentable-dev/reqlite/tree/main/internal/redis/client_getname)
 | CLIENT GETREDIR               | 🚧
 | CLIENT UNPAUSE                | 🚧
 | CLIENT PAUSE                  | 🚧
