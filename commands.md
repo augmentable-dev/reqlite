@@ -81,7 +81,7 @@
 | DEL                           | 🚧
 | DISCARD                       | 🚧
 | DUMP                          | ✅ [`DUMP`](https://github.com/augmentable-dev/reqlite/tree/main/internal/redis/dump)
-| ECHO                          | 🚧
+| ECHO                          | ✅ [`ECHO`](https://github.com/augmentable-dev/reqlite/tree/main/internal/redis/
 | EVAL                          | 🚧
 | EVALSHA                       | 🚧
 | EXEC                          | 🚧
