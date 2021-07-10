@@ -118,6 +118,12 @@ SELECT * FROM CONFIG_GET('*max-*-entries*')
 SELECT * FROM CONFIG_GET -- equivalent to CONFIG GET *
 ```
 
+### CONFIG GET
+
+```sql
+SELECT CLUSTERCOUNTFAILUREREPORTS(<node_id>)
+```
+
 ### DBSIZE
 
 ```sql
