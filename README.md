@@ -111,6 +111,12 @@ SELECT BITPOS('some-key', 1, 2)
 SELECT CLIENT_ID()
 ```
 
+### CLIENT GETNAME
+
+```sql
+SELECT CLIENT_GETNAME()
+```
+
 ### CONFIG GET
 
 ```sql
@@ -122,6 +128,12 @@ SELECT * FROM CONFIG_GET -- equivalent to CONFIG GET *
 
 ```sql
 SELECT CLUSTER_COUNTKEYSINSLOT(<key_id>)
+```
+
+### CLUSTER COUNT-FAILURE-REPORTS
+
+```sql
+SELECT CLUSTER_COUNT_FAILURE_REPORTS(<node_id>)
 ```
 
 ### DBSIZE
