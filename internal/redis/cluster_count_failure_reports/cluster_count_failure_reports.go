@@ -1,4 +1,4 @@
-package cluster_countfailurereports
+package cluster_count_failure_reports
 
 import (
 	"context"

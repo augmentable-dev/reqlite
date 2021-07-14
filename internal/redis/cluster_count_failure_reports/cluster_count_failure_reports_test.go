@@ -1,10 +1,10 @@
-package cluster_countfailurereports_test
+package cluster_count_failure_reports_test
 
 import (
 	"fmt"
 	"testing"
 
-	"github.com/augmentable-dev/reqlite/internal/redis/cluster_countfailurereports"
+	"github.com/augmentable-dev/reqlite/internal/redis/cluster_count_failure_reports"
 	_ "github.com/augmentable-dev/reqlite/internal/sqlite"
 	"github.com/go-redis/redismock/v8"
 	"github.com/go-test/deep"
@@ -18,10 +18,10 @@ func TestCluster_countfailurereports_OK(t *testing.T) {
 
 	want := int64(1024)
 	mock.ExpectClusterCountFailureReports("abcdefghijklmnopqrstuvwxyz0123456789aaab").SetVal(want)
-	function := cluster_countfailurereports.New(rdb)
+	function := cluster_count_failure_reports.New(rdb)
 
 	sqlite.Register(func(api *sqlite.ExtensionApi) (sqlite.ErrorCode, error) {
-		if err := api.CreateFunction("clustercountfailurereports", function); err != nil {
+		if err := api.CreateFunction("cluster_count_failure_reports", function); err != nil {
 			return sqlite.SQLITE_ERROR, err
 		}
 		return sqlite.SQLITE_OK, nil
@@ -33,7 +33,7 @@ func TestCluster_countfailurereports_OK(t *testing.T) {
 	}
 	defer db.Close()
 
-	row := db.QueryRow("SELECT clustercountfailurereports('abcdefghijklmnopqrstuvwxyz0123456789aaab')")
+	row := db.QueryRow("SELECT cluster_count_failure_reports('abcdefghijklmnopqrstuvwxyz0123456789aaab')")
 	err = row.Err()
 	if err != nil {
 		t.Fatal(err)
@@ -58,10 +58,10 @@ func TestCluster_countfailurereports_extra_argsOK(t *testing.T) {
 
 	want := int64(1024)
 	mock.ExpectClusterCountFailureReports("abcdefghijklmnopqrstuvwxyz0123456789aaab").SetVal(want)
-	function := cluster_countfailurereports.New(rdb)
+	function := cluster_count_failure_reports.New(rdb)
 
 	sqlite.Register(func(api *sqlite.ExtensionApi) (sqlite.ErrorCode, error) {
-		if err := api.CreateFunction("clustercountfailurereports", function); err != nil {
+		if err := api.CreateFunction("cluster_count_failure_reports", function); err != nil {
 			return sqlite.SQLITE_ERROR, err
 		}
 		return sqlite.SQLITE_OK, nil
@@ -73,7 +73,7 @@ func TestCluster_countfailurereports_extra_argsOK(t *testing.T) {
 	}
 	defer db.Close()
 
-	row := db.QueryRow("SELECT clustercountfailurereports('abcdefghijklmnopqrstuvwxyz0123456789aaab','this','should','be','fine')")
+	row := db.QueryRow("SELECT cluster_count_failure_reports('abcdefghijklmnopqrstuvwxyz0123456789aaab','this','should','be','fine')")
 	err = row.Err()
 	if err != nil {
 		t.Fatal(err)
@@ -96,10 +96,10 @@ func TestCluster_countfailurereports_extra_argsOK(t *testing.T) {
 func TestCluster_countfailurereports_error(t *testing.T) {
 	rdb, _ := redismock.NewClientMock()
 
-	function := cluster_countfailurereports.New(rdb)
+	function := cluster_count_failure_reports.New(rdb)
 
 	sqlite.Register(func(api *sqlite.ExtensionApi) (sqlite.ErrorCode, error) {
-		if err := api.CreateFunction("clustercountfailurereports", function); err != nil {
+		if err := api.CreateFunction("cluster_count_failure_reports", function); err != nil {
 			return sqlite.SQLITE_ERROR, err
 		}
 		return sqlite.SQLITE_OK, nil
@@ -111,10 +111,10 @@ func TestCluster_countfailurereports_error(t *testing.T) {
 	}
 	defer db.Close()
 
-	row := db.QueryRow("SELECT clustercountfailurereports()")
+	row := db.QueryRow("SELECT cluster_count_failure_reports()")
 	var s string
 	err = row.Scan(&s)
 	if err == nil {
-		t.Fatal(fmt.Errorf("clustercountfailurereports given no input and did not return err, returned : %s", s))
+		t.Fatal(fmt.Errorf("cluster_count_failure_reports given no input and did not return err, returned : %s", s))
 	}
 }

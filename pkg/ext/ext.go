@@ -10,7 +10,7 @@ import (
 	"github.com/augmentable-dev/reqlite/internal/redis/client_getname"
 	"github.com/augmentable-dev/reqlite/internal/redis/client_id"
 	"github.com/augmentable-dev/reqlite/internal/redis/client_list"
-	"github.com/augmentable-dev/reqlite/internal/redis/cluster_countfailurereports"
+	"github.com/augmentable-dev/reqlite/internal/redis/cluster_count_failure_reports"
 	"github.com/augmentable-dev/reqlite/internal/redis/config_get"
 	"github.com/augmentable-dev/reqlite/internal/redis/dbsize"
 	"github.com/augmentable-dev/reqlite/internal/redis/dump"
@@ -77,7 +77,7 @@ func init() {
 			return sqlite.SQLITE_ERROR, err
 		}
 
-		if err := api.CreateFunction("cluster_countfailurereports", cluster_countfailurereports.New(rdb)); err != nil {
+		if err := api.CreateFunction("cluster_count_failure_reports", cluster_count_failure_reports.New(rdb)); err != nil {
 			return sqlite.SQLITE_ERROR, err
 		}
 
