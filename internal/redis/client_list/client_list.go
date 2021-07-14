@@ -1,6 +1,6 @@
 package client_list
 
-import(
+import (
 	"context"
 
 	"github.com/go-redis/redis/v8"
@@ -14,7 +14,6 @@ type clientlist struct {
 func (f *clientlist) Args() int           { return 0 }
 func (f *clientlist) Deterministic() bool { return false }
 func (f *clientlist) Apply(ctx *sqlite.Context, values ...sqlite.Value) {
-
 	id, err := f.rdb.ClientList(context.TODO()).Result()
 	if err != nil {
 		ctx.ResultError(err)
