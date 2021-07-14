@@ -8,6 +8,7 @@ import (
 	"github.com/augmentable-dev/reqlite/internal/redis/bitcount"
 	"github.com/augmentable-dev/reqlite/internal/redis/bitpos"
 	"github.com/augmentable-dev/reqlite/internal/redis/client_id"
+	"github.com/augmentable-dev/reqlite/internal/redis/client_list"
 	"github.com/augmentable-dev/reqlite/internal/redis/config_get"
 	"github.com/augmentable-dev/reqlite/internal/redis/dbsize"
 	"github.com/augmentable-dev/reqlite/internal/redis/dump"
@@ -58,6 +59,10 @@ func init() {
 		}
 
 		if err := api.CreateFunction("client_id", client_id.New(rdb)); err != nil {
+			return sqlite.SQLITE_ERROR, err
+		}
+
+		if err := api.CreateFunction("client_list", client_list.New(rdb)); err != nil {
 			return sqlite.SQLITE_ERROR, err
 		}
 
