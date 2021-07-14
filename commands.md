@@ -46,7 +46,7 @@
 | CLUSTER ADDSLOTS              | 🚧
 | CLUSTER BUMPEPOCH             | 🚧
 | CLUSTER COUNT-FAILURE-REPORTS | ✅ [`CLUSTER_COUNT_FAILURE_REPORTS`](https://github.com/augmentable-dev/reqlite/tree/main/internal/redis/cluster_count_failure_reports)
-| CLUSTER COUNTKEYSINSLOT       | 🚧
+| CLUSTER COUNTKEYSINSLOT       | ✅ [`CLUSTER_COUNTKEYSINSLOT`](https://github.com/augmentable-dev/reqlite/tree/main/internal/redis/cluster_countkeysinslot)
 | CLUSTER DELSLOTS              | 🚧
 | CLUSTER FAILOVER              | 🚧
 | CLUSTER FLUSHSLOTS            | 🚧
