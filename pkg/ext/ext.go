@@ -7,12 +7,14 @@ import (
 	"github.com/augmentable-dev/reqlite/internal/json/mget"
 	"github.com/augmentable-dev/reqlite/internal/redis/bitcount"
 	"github.com/augmentable-dev/reqlite/internal/redis/bitpos"
+	"github.com/augmentable-dev/reqlite/internal/redis/client_getname"
 	"github.com/augmentable-dev/reqlite/internal/redis/client_id"
+	"github.com/augmentable-dev/reqlite/internal/redis/client_list"
 	"github.com/augmentable-dev/reqlite/internal/redis/cluster_countfailurereports"
 	"github.com/augmentable-dev/reqlite/internal/redis/config_get"
-
 	"github.com/augmentable-dev/reqlite/internal/redis/dbsize"
 	"github.com/augmentable-dev/reqlite/internal/redis/dump"
+	"github.com/augmentable-dev/reqlite/internal/redis/echo"
 	"github.com/augmentable-dev/reqlite/internal/redis/hgetall"
 	"github.com/augmentable-dev/reqlite/internal/redis/llen"
 	"github.com/augmentable-dev/reqlite/internal/redis/lrange"
@@ -62,6 +64,14 @@ func init() {
 			return sqlite.SQLITE_ERROR, err
 		}
 
+		if err := api.CreateFunction("client_getname", client_getname.New(rdb)); err != nil {
+			return sqlite.SQLITE_ERROR, err
+		}
+
+		if err := api.CreateFunction("client_list", client_list.New(rdb)); err != nil {
+			return sqlite.SQLITE_ERROR, err
+		}
+
 		if err := api.CreateModule("config_get", config_get.New(rdb),
 			sqlite.EponymousOnly(true), sqlite.ReadOnly(true)); err != nil {
 			return sqlite.SQLITE_ERROR, err
@@ -76,6 +86,10 @@ func init() {
 		}
 
 		if err := api.CreateFunction("dump", dump.New(rdb)); err != nil {
+			return sqlite.SQLITE_ERROR, err
+		}
+
+		if err := api.CreateFunction("echo", echo.New(rdb)); err != nil {
 			return sqlite.SQLITE_ERROR, err
 		}
 

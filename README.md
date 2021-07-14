@@ -111,6 +111,12 @@ SELECT BITPOS('some-key', 1, 2)
 SELECT CLIENT_ID()
 ```
 
+### CLIENT ID
+
+```sql
+SELECT CLIENT_GETNAME()
+```
+
 ### CONFIG GET
 
 ```sql

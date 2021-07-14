@@ -32,7 +32,8 @@
 | CLIENT ID                     | ✅ [`CLIENT_ID`](https://github.com/augmentable-dev/reqlite/tree/main/internal/redis/client_id)
 | CLIENT INFO                   | 🚧
 | CLIENT KILL                   | 🚧
-| CLIENT LIST                   | 🚧
+| CLIENT LIST                   | ✅ [`CLIENT_LIST`](https://github.com/augmentable-dev/reqlite/tree/main/internal/redis/client_list
+| CLIENT GETNAME                | ✅ [`CLIENT_GETNAME`](https://github.com/augmentable-dev/reqlite/tree/main/internal/redis/client_getname)
 | CLIENT GETNAME                | 🚧
 | CLIENT GETREDIR               | 🚧
 | CLIENT UNPAUSE                | 🚧
@@ -81,7 +82,7 @@
 | DEL                           | 🚧
 | DISCARD                       | 🚧
 | DUMP                          | ✅ [`DUMP`](https://github.com/augmentable-dev/reqlite/tree/main/internal/redis/dump)
-| ECHO                          | 🚧
+| ECHO                          | ✅ [`ECHO`](https://github.com/augmentable-dev/reqlite/tree/main/internal/redis/
 | EVAL                          | 🚧
 | EVALSHA                       | 🚧
 | EXEC                          | 🚧
