@@ -1,11 +1,11 @@
-package getname_test
+package client_getname_test
 
 import (
 	"fmt"
 	"strings"
 	"testing"
 
-	getname "github.com/augmentable-dev/reqlite/internal/redis/client_getname"
+	"github.com/augmentable-dev/reqlite/internal/redis/client_getname"
 	_ "github.com/augmentable-dev/reqlite/internal/sqlite"
 	"github.com/go-redis/redismock/v8"
 	"github.com/jmoiron/sqlx"
@@ -18,7 +18,7 @@ func TestClientGetNameOK(t *testing.T) {
 
 	want := "username"
 	mock.ExpectClientGetName().SetVal(want)
-	function := getname.New(rdb)
+	function := client_getname.New(rdb)
 
 	sqlite.Register(func(api *sqlite.ExtensionApi) (sqlite.ErrorCode, error) {
 		if err := api.CreateFunction("client_getname", function); err != nil {

@@ -1,4 +1,4 @@
-package getname
+package client_getname
 
 import (
 	"context"
