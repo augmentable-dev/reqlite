@@ -100,7 +100,7 @@
 | GEORADIUSBYMEMBER             | 🚧
 | GEOSEARCH                     | 🚧
 | GEOSEARCHSTORE                | 🚧
-| GET                           | 🚧
+| GET                           |  ✅ [`GET`](https://github.com/augmentable-dev/reqlite/tree/main/internal/redis/get_cmd)
 | GETBIT                        | 🚧
 | GETDEL                        | 🚧
 | GETEX                         | 🚧
