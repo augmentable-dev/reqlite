@@ -16,6 +16,7 @@ import (
 	"github.com/augmentable-dev/reqlite/internal/redis/dbsize"
 	"github.com/augmentable-dev/reqlite/internal/redis/dump"
 	"github.com/augmentable-dev/reqlite/internal/redis/echo"
+	"github.com/augmentable-dev/reqlite/internal/redis/getrange"
 	"github.com/augmentable-dev/reqlite/internal/redis/hgetall"
 	"github.com/augmentable-dev/reqlite/internal/redis/llen"
 	"github.com/augmentable-dev/reqlite/internal/redis/lrange"
@@ -95,6 +96,10 @@ func init() {
 		}
 
 		if err := api.CreateFunction("echo", echo.New(rdb)); err != nil {
+			return sqlite.SQLITE_ERROR, err
+		}
+
+		if err := api.CreateFunction("getrange", getrange.New(rdb)); err != nil {
 			return sqlite.SQLITE_ERROR, err
 		}
 
