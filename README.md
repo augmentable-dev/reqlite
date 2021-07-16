@@ -142,6 +142,12 @@ SELECT CLUSTER_COUNTKEYSINSLOT(<key_id>)
 SELECT DBSIZE()
 ```
 
+### GETRANGE
+
+```sql
+SELECT GETRANGE('key-id',<start>,<end>)
+```
+
 ### LLEN
 
 ```sql

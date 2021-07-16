@@ -104,7 +104,7 @@
 | GETBIT                        | 🚧
 | GETDEL                        | 🚧
 | GETEX                         | 🚧
-| GETRANGE                      | 🚧
+| GETRANGE                      | ✅ [`GETRANGE`](https://github.com/augmentable-dev/reqlite/tree/main/internal/redis/getrange)
 | GETSET                        | 🚧
 | HDEL                          | 🚧
 | HELLO                         | 🚧
