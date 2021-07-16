@@ -1,10 +1,10 @@
-package get_test
+package get_cmd_test
 
 import (
 	"strings"
 	"testing"
 
-	"github.com/augmentable-dev/internal/redis/get"
+	get "github.com/augmentable-dev/internal/redis/get_cmd"
 	_ "github.com/augmentable-dev/reqlite/internal/sqlite"
 	"github.com/go-redis/redismock/v8"
 	"github.com/jmoiron/sqlx"
