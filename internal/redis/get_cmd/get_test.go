@@ -1,10 +1,9 @@
 package get_cmd_test
 
 import (
-	"strings"
 	"testing"
 
-	get "github.com/augmentable-dev/internal/redis/get_cmd"
+	get "github.com/augmentable-dev/reqlite/internal/redis/get_cmd"
 	_ "github.com/augmentable-dev/reqlite/internal/sqlite"
 	"github.com/go-redis/redismock/v8"
 	"github.com/jmoiron/sqlx"
@@ -43,16 +42,5 @@ func TestGet(t *testing.T) {
 
 	if err := mock.ExpectationsWereMet(); err != nil {
 		t.Error(err)
-	}
-
-	row = db.QueryRow("SELECT get()")
-	err = row.Err()
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	err = row.Scan(&s)
-	if strings.Compare(s, "must supply argument to redis get command") != 0 {
-		t.Fatal("no err returned with no args supplied")
 	}
 }
