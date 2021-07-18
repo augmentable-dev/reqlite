@@ -109,7 +109,7 @@
 | HDEL                          | 🚧
 | HELLO                         | 🚧
 | HEXISTS                       | 🚧
-| HGET                          | 🚧
+| HGET                          | ✅ [`HGET`](https://github.com/augmentable-dev/reqlite/tree/main/internal/redis/hget)
 | HGETALL                       | ✅ [`HGETALL`](https://github.com/augmentable-dev/reqlite/tree/main/internal/redis/hgetall)
 | HINCRBY                       | 🚧
 | HINCRBYFLOAT                  | 🚧
