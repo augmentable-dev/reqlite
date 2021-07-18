@@ -108,7 +108,7 @@
 | GETSET                        | 🚧
 | HDEL                          | 🚧
 | HELLO                         | 🚧
-| HEXISTS                       | 🚧
+| HEXISTS                       | [`HEXISTS`](https://github.com/augmentable-dev/reqlite/tree/main/internal/redis/hexists)
 | HGET                          | 🚧
 | HGETALL                       | ✅ [`HGETALL`](https://github.com/augmentable-dev/reqlite/tree/main/internal/redis/hgetall)
 | HINCRBY                       | 🚧

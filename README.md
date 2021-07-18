@@ -142,6 +142,12 @@ SELECT CLUSTER_COUNTKEYSINSLOT(<key_id>)
 SELECT DBSIZE()
 ```
 
+### HEXISTS
+
+```sql
+SELECT HEXISTS('some-key','some-field')
+```
+
 ### LLEN
 
 ```sql
