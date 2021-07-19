@@ -17,6 +17,7 @@ import (
 	"github.com/augmentable-dev/reqlite/internal/redis/dump"
 	"github.com/augmentable-dev/reqlite/internal/redis/echo"
 	"github.com/augmentable-dev/reqlite/internal/redis/hgetall"
+	"github.com/augmentable-dev/reqlite/internal/redis/hkeys"
 	"github.com/augmentable-dev/reqlite/internal/redis/llen"
 	"github.com/augmentable-dev/reqlite/internal/redis/lrange"
 	"github.com/go-redis/redis/v8"
@@ -95,6 +96,10 @@ func init() {
 		}
 
 		if err := api.CreateFunction("echo", echo.New(rdb)); err != nil {
+			return sqlite.SQLITE_ERROR, err
+		}
+
+		if err := api.CreateFunction("hkeys", hkeys.New(rdb)); err != nil {
 			return sqlite.SQLITE_ERROR, err
 		}
 
