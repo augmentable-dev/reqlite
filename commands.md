@@ -115,7 +115,7 @@
 | HINCRBYFLOAT                  | 🚧
 | HKEYS                         | 🚧
 | HLEN                          | 🚧
-| HMGET                         | 🚧
+| HMGET                         | ✅ [`HMGET`](https://github.com/augmentable-dev/reqlite/tree/main/internal/redis/hmget)
 | HMSET                         | 🚧
 | HSET                          | 🚧
 | HSETNX                        | 🚧
