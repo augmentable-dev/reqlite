@@ -1,9 +1,9 @@
-package get_cmd_test
+package get_test
 
 import (
 	"testing"
 
-	get "github.com/augmentable-dev/reqlite/internal/redis/get_cmd"
+	"github.com/augmentable-dev/internal/redis/get"
 	_ "github.com/augmentable-dev/reqlite/internal/sqlite"
 	"github.com/go-redis/redismock/v8"
 	"github.com/jmoiron/sqlx"

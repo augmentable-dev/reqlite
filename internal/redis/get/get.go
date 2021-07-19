@@ -1,4 +1,4 @@
-package get_cmd
+package get
 
 import (
 	"context"
