@@ -3,7 +3,7 @@ package get_test
 import (
 	"testing"
 
-	"github.com/augmentable-dev/internal/redis/get"
+	"github.com/augmentable-dev/reqlite/internal/redis/get"
 	_ "github.com/augmentable-dev/reqlite/internal/sqlite"
 	"github.com/go-redis/redismock/v8"
 	"github.com/jmoiron/sqlx"

@@ -16,7 +16,7 @@ import (
 	"github.com/augmentable-dev/reqlite/internal/redis/dbsize"
 	"github.com/augmentable-dev/reqlite/internal/redis/dump"
 	"github.com/augmentable-dev/reqlite/internal/redis/echo"
-	"github.com/augmentable-dev/reqlite/internal/redis/get_cmd"
+	redis_get "github.com/augmentable-dev/reqlite/internal/redis/get"
 	"github.com/augmentable-dev/reqlite/internal/redis/hgetall"
 	"github.com/augmentable-dev/reqlite/internal/redis/llen"
 	"github.com/augmentable-dev/reqlite/internal/redis/lrange"
@@ -99,7 +99,7 @@ func init() {
 			return sqlite.SQLITE_ERROR, err
 		}
 
-		if err := api.CreateFunction("get", get_cmd.New(rdb)); err != nil {
+		if err := api.CreateFunction("get", redis_get.New(rdb)); err != nil {
 			return sqlite.SQLITE_ERROR, err
 		}
 
