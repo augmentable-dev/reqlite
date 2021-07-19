@@ -142,6 +142,12 @@ SELECT CLUSTER_COUNTKEYSINSLOT(<key_id>)
 SELECT DBSIZE()
 ```
 
+### HKEYS
+
+```sql
+SELECT HKEYS("some-key")
+```
+
 ### LLEN
 
 ```sql

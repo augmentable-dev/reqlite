@@ -113,7 +113,7 @@
 | HGETALL                       | ✅ [`HGETALL`](https://github.com/augmentable-dev/reqlite/tree/main/internal/redis/hgetall)
 | HINCRBY                       | 🚧
 | HINCRBYFLOAT                  | 🚧
-| HKEYS                         | 🚧
+| HKEYS                         | ✅ [`HKEYS`](https://github.com/augmentable-dev/reqlite/tree/main/internal/redis/hkeys)
 | HLEN                          | 🚧
 | HMGET                         | 🚧
 | HMSET                         | 🚧
