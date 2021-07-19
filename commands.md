@@ -121,7 +121,7 @@
 | HSETNX                        | 🚧
 | HRANDFIELD                    | 🚧
 | HSTRLEN                       | 🚧
-| HVALS                         | 🚧
+| HVALS                         | ✅ [`HVALS`](https://github.com/augmentable-dev/reqlite/tree/main/internal/redis/hvals)
 | INCR                          | 🚧
 | INCRBY                        | 🚧
 | INCRBYFLOAT                   | 🚧
