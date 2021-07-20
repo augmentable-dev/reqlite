@@ -105,16 +105,24 @@ SELECT BITPOS('some-key', 0)
 SELECT BITPOS('some-key', 1, 2)
 ```
 
+### CLIENT GETNAME
+
+```sql
+SELECT CLIENT_GETNAME()
+```
+
 ### CLIENT ID
 
 ```sql
 SELECT CLIENT_ID()
 ```
 
-### CLIENT GETNAME
+
+
+### CLIENT LIST
 
 ```sql
-SELECT CLIENT_GETNAME()
+SELECT CLIENT_LIST()
 ```
 
 ### CONFIG GET
@@ -127,13 +135,13 @@ SELECT * FROM CONFIG_GET -- equivalent to CONFIG GET *
 ### CLUSTER COUNT-FAILURE-REPORTS
 
 ```sql
-SELECT CLUSTER_COUNT_FAILURE_REPORTS(<node_id>)
+SELECT CLUSTER_COUNT_FAILURE_REPORTS('some-node-id')
 ```
 
 ### CLUSTER_COUNTKEYSINSLOT
 
 ```sql
-SELECT CLUSTER_COUNTKEYSINSLOT(<key_id>)
+SELECT CLUSTER_COUNTKEYSINSLOT('some-key-id')
 ```
 
 ### DBSIZE
@@ -146,6 +154,12 @@ SELECT DBSIZE()
 
 ```sql
 SELECT GET('some-key')
+```
+
+### ECHO
+
+```sql
+SELECT ECHO('some-string')
 ```
 
 ### LLEN
