@@ -150,6 +150,11 @@ SELECT CLUSTER_COUNTKEYSINSLOT('some-key-id')
 SELECT DBSIZE()
 ```
 
+### GET
+
+```sql
+SELECT GET('some-key')
+```
 
 ### ECHO
 
